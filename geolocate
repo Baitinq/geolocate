@@ -35,6 +35,15 @@ curl -s https://ipvigilante.com/ | \
         done
 }
 
+printCoord() {
+curl -s https://ipvigilante.com/ | \
+        jq '.data.latitude, .data.longitude' | \
+        while read -r LATITUDE; do
+                read -r LONGITUDE
+                echo "${LATITUDE}:${LONGITUDE}" | tr -d '"' > /usr/share/geolocate/.location
+        done
+}
+
         main() {
 
             case "$1" in
@@ -64,6 +73,10 @@ curl -s https://ipvigilante.com/ | \
                       ;;
                   esac
                   exit 0
+                ;;
+            print)
+                printCoord
+                exit 0
                 ;;
             *)
                 getCoord
