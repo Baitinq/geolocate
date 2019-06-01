@@ -4,7 +4,7 @@ Wants=network-online.target
 After=network.target network-online.target
 
 [Service]
-ExecStart=/usr/bin/geolocate >> /usr/share/geolocate/.location
+ExecStart=/usr/bin/geolocate > /usr/share/geolocate/.location
 
 [Install]
 WantedBy=multi-use1r.target
