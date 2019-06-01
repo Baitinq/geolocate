@@ -16,6 +16,7 @@ usage() {
   echo -e "Commands:"
   echo -e "  help       - print a summary of the script's function and usage."
   echo -e "  version  - print the scripts version."
+  echo -e "  print  - write your location into /usr/share/geolocate/.location"
   echo -e "  ip:"
   echo -e "     ip 'blank' - print your public ip adress."
   echo -e "     ip 'IP'    - get coordinates of a non-personal ip."
