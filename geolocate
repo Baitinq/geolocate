@@ -13,7 +13,7 @@ else
 fi
 
 usage() {
-  echo -e "Usage: 'geolocate COMMAND'\n"
+  echo -e "Usage: 'geolocate [COMMAND]'\n"
   echo -e "A script to obtain the approximate latitude and longitude given an ip adress.\n"
   echo -e "Commands:"
   echo -e "  help       - print a summary of the script's function and usage."
