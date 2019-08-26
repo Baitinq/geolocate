@@ -9,4 +9,4 @@ RestartSec=1800s
 ExecStart=/usr/bin/geolocate print
 
 [Install]
-WantedBy=multi-use1r.target
+WantedBy=multi-user.target
