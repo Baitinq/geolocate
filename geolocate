@@ -34,8 +34,8 @@ getIp() {
 }
 
 getCoord() {
-curl -s https://ipvigilante.com/ | \
-        jq '.data.latitude, .data.longitude' | \
+curl -s http://ip-api.com/json | \
+        jq '.lat, .lon' | \
         while read -r LATITUDE; do
                 read -r LONGITUDE
                 echo "${LATITUDE}:${LONGITUDE}" | tr -d '"'
@@ -43,8 +43,8 @@ curl -s https://ipvigilante.com/ | \
 }
 
 printCoord() {
-curl -s https://ipvigilante.com/ | \
-        jq '.data.latitude, .data.longitude' | \
+curl -s http://ip-api.com/json | \
+	jq '.lat, .lon' | \
         while read -r LATITUDE; do
                 read -r LONGITUDE
                 echo "${LATITUDE}:${LONGITUDE}" | tr -d '"' > /usr/share/geolocate/.location
@@ -70,8 +70,8 @@ curl -s https://ipvigilante.com/ | \
                       ;;
                   *)
                       IP="$2"
-                      curl -s https://ipvigilante.com/$IP | \
-                              jq '.data.latitude, .data.longitude' | \
+                      curl -s http://ip-api.com/json/$IP | \
+	        	      jq '.lat, .lon' | \
                               while read -r LATITUDE; do
                                       read -r LONGITUDE
                                       echo "${LATITUDE}:${LONGITUDE}" | tr -d '"'
